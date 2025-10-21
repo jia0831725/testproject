@@ -85,8 +85,6 @@ public class CameraController : MonoBehaviour
         detector.cycle = 0;
     }
 
-
-
     // 攝影機平滑跟隨玩家
     /*IEnumerator Rotateandfollow()
     {
