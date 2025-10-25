@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         float moveZ = Input.GetAxis("Vertical");
 
         // 計算玩家的移動方向（只改變 X 和 Z 坐標）
-        Vector3 move = transform.right * moveX+ transform.forward * moveZ;
+        Vector3 move = transform.right * moveX/*+ transform.forward * moveZ*/;
         move.y = ySpeed;  // 將垂直方向的速度（重力或跳躍）應用到移動
 
         // 移動角色

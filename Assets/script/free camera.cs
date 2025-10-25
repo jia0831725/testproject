@@ -33,3 +33,4 @@ public class SimpleFreeCamera : MonoBehaviour
         transform.position += move * moveSpeed * Time.deltaTime;
     }
 }
+

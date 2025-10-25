@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class switchitemusing : MonoBehaviour
 {
-    public int switchitem=0;
+    public int switchitem = 0;
     public bool heightfollow = false;
     private Vector3[] switchpos = new Vector3[7]
     {
