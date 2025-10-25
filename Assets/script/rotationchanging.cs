@@ -17,11 +17,11 @@ public class rotationchanging : MonoBehaviour
     {
        if(Input.GetKeyDown(KeyCode.Q))
         {
-            finalrotation -= 90;
+            finalrotation += 90;
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            finalrotation += 90;
+            finalrotation -= 90;
         }
         Quaternion targetrotation = Quaternion.Euler(0, finalrotation, 0);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetrotation, turningspeed * Time.deltaTime);
