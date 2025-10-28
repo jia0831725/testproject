@@ -1,0 +1,10 @@
+# 對 Unity 二進位檔案關閉行尾轉換
+*.prefab     -text
+*.unity      -text
+*.meta       -text
+*.asset      -text
+*.renderTexture -text
+*.png        -text
+*.jpg        -text
+*.fbx        -text
+*.mp4        -text
