@@ -21,7 +21,7 @@ public class switchcamera : MonoBehaviour
         if(positionplace.switchitem % 7 == 0 &&¡@Input.GetKeyDown(KeyCode.DownArrow) && positionplace.heightfollow)
         {
             StartCoroutine(Camerausing());
-        }    
+        }
     }
 
     IEnumerator Camerausing()

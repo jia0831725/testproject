@@ -7,6 +7,7 @@ public class SimpleFreeCamera : MonoBehaviour
     public float moveSpeed = 5f;
     public float lookSensitivity = 2f;
     private float rotX;
+    private Vector3 pos;
 
     void Start()
     {
@@ -16,6 +17,11 @@ public class SimpleFreeCamera : MonoBehaviour
 
     void Update()
     {
+        pos = transform.position;
+        pos.x = Mathf.Clamp(transform.position.x, -5f, 5f);
+        pos.y = Mathf.Clamp(transform.position.y, 1f, 4f);
+        pos.z = Mathf.Clamp(transform.position.z, -5f, 5f);
+        transform.position = pos;
         // ·Æ¹«±±¨î±ÛÂà
         float mouseX = Input.GetAxis("Mouse X") * lookSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * lookSensitivity;
