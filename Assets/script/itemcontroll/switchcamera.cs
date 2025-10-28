@@ -5,18 +5,20 @@ using UnityEngine;
 public class switchcamera : MonoBehaviour
 {
     private switchitemusing positionplace; //偵測選擇框在哪個位置
-    public GameObject player,freecam,choosequare,playercam;
-    public float timeDelay = 20f;
+    private itemsortappear updown;
+    public GameObject player,freecam,choosequare,playercam,itemsort;
+    public float timeDelay = 10f;
     // Start is called before the first frame update
     void Start()
     {
         positionplace = choosequare.GetComponent<switchitemusing>();
+        updown = itemsort.GetComponent<itemsortappear>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(positionplace.switchitem % 7 == 0 &&　Input.GetKeyDown(KeyCode.DownArrow))
+        if(positionplace.switchitem % 7 == 0 &&　Input.GetKeyDown(KeyCode.DownArrow) && positionplace.heightfollow)
         {
             StartCoroutine(Camerausing());
         }    
@@ -24,6 +26,7 @@ public class switchcamera : MonoBehaviour
 
     IEnumerator Camerausing()
     {
+        updown.downactive = true;
         player.GetComponent<PlayerMovement>().enabled = false;
         player.GetComponent<rotationchanging>().enabled = false;
         freecam.SetActive(true);
