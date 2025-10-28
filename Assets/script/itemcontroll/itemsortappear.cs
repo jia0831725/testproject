@@ -13,7 +13,7 @@ public class itemsortappear : MonoBehaviour
     {
         invisible = true;
         origform = transform.position;
-        finalpos = origform + new Vector3(0,120,0);
+        finalpos = origform + new Vector3(0,110,0);
     }
 
     // Update is called once per frame

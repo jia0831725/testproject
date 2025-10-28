@@ -8,21 +8,22 @@ public class getitemvisible : MonoBehaviour
     public int jumpi = 1;
     public Vector3[] itemplace;
     public int itemnumber,save,load; //獲得順序,存當下位置,回傳原位置
-    public GameObject jumpitem;
+    public GameObject jumpitem,sort;
     public GameObject jumpbuff; //是否獲得物品
+    private switchitemusing hieght;
     // Start is called before the first frame update
     void Start()
     {
-        itemplace = new Vector3[6];
-        //itemplace[0] = new Vector3(141, -44, 0);
-        itemplace[0] = new Vector3(163, -44, 0);
-        itemplace[1] = new Vector3(227, -44, 0);
-        itemplace[2] = new Vector3(290, -44, 0);
-        itemplace[3] = new Vector3(355 -44, 0);
-        itemplace[4] = new Vector3(420, -44, 0);
-        itemplace[5] = new Vector3(483, -44, 0);
+        itemplace = new Vector3[6]{
+        new Vector3(177, -59, 0),
+        new Vector3(241, -59, 0),
+        new Vector3(305, -59, 0),
+        new Vector3(370, -59, 0),
+        new Vector3(434, -59, 0),
+        new Vector3(498, -59, 0) };
         jump = jumpbuff.GetComponent<getitem>();
         itemnumber = 0;
+        hieght = sort.GetComponent<switchitemusing>();
     }
 
     // Update is called once per frame
@@ -33,6 +34,10 @@ public class getitemvisible : MonoBehaviour
         {
             jumpitem.SetActive(true);   
             jumpitem.transform.position = itemplace[itemnumber];
+            if(hieght.heightfollow)
+            {
+                jumpitem.transform.position += new Vector3(0, 120, 0);
+            }
             jumpi = itemnumber;
             itemnumber ++;
             load = 1;
@@ -40,7 +45,7 @@ public class getitemvisible : MonoBehaviour
 
             if(transform.position.y >= 65)
             {
-                jumpitem.transform.position += new Vector3(0,120,0);
+                jumpitem.transform.position += new Vector3(0,110,0);
             }
         }
         //..........
