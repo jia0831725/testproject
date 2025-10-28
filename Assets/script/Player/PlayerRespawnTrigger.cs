@@ -1,28 +1,37 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class PlayerRespawnTrigger : MonoBehaviour
 {
-    private Vector3 respawnPoint = new Vector3(0, 0, 0);
+    public float distance = 2f, xdistance = 0, zdistance, ydistance;
+    public Transform player,aim;
+
+    void Start()
+    {
+        if (player == null)
+            {
+                player = GameObject.FindWithTag("Player").transform;
+            }
+    }
+
+    void Update()
+    {
+        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        // 檢查是否碰到名為 "DeathZone" 的物件
+        // 如果碰到 DeathZone，重生
         if (other.CompareTag("DeathZone"))
         {
-            Respawn();
-        }
-    }
-
-    void Respawn()
-    {
-        transform.position = respawnPoint;
-
-        // 如果玩家有剛體，重置速度
-        Rigidbody rb = GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
+            xdistance = player.position.x - transform.position.x;
+            zdistance = player.position.z - transform.position.z;
+            ydistance = player.position.y - transform.position.y;
+            player.GetComponent<CharacterController>().enabled = false;
+            player.position = aim.position + new Vector3(0,1,0);
+            player.GetComponent<CharacterController>().enabled = true;
         }
     }
 }
